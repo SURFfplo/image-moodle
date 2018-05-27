@@ -1,14 +1,8 @@
-docker-moodle
-===
-
-All you need to get your lightweight [Moodle][moodle] instance.
----
-
 Moodle
 ===
 
-Lightweight docker container based on [Alpine Linux][alpine] includes Moodle 3.2, Apache,
-PHP7.1, and all php-extensions required by Moodle.
+Lightweight docker container based on [Alpine Linux][alpine] includes Moodle 3.5, Apache,
+PHP7, and all php-extensions required by Moodle.
 
 Run container
 ---
@@ -21,14 +15,13 @@ $ docker run -p 80:80
              -e "MOODLE_DB_USER=moodle" \
              -e "MOODLE_DB_PASS=moodlepass" \
              -e "MOODLE_URL=http://localhost" \
-              zebradil/moodle
+             xflin/moodle
 ```
 
 As you see, some environment variables should be set. All of them must be
 non-empty, except `MOODLE_DB_PASS` — it may be empty, but must be set.
 
-At this time MySQL database only supported. It may work with MariaDB I didn't
-check it.
+At this time MySQL database only supported.
 
 Deploy stack
 ---
@@ -44,12 +37,7 @@ $ MYSQL_ROOT_PASSWORD=root \
 
 Notice, that there are another set of environment variables here.
 
-Moodle with [Coderunner][coderunner] plugin
----
-
-All the same, but use another tag:
-- `zebradil/moodle:coderunner
-
+Forked from https://github.com/Zebradil/docker-moodle.git
 Inspired by bunch of [sergiogomez's docker-moodle forks](https://github.com/sergiogomez/docker-moodle).
 
 [coderunner]: http://coderunner.org.nz/
