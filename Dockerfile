@@ -52,8 +52,8 @@ RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
 
 COPY config-dist.php /var/www/localhost/htdocs/config.php
 COPY run.sh /opt/apache2/run.sh
-COPY --chown=apache:apache moodlecron /etc/periodic/15min/
-RUN chmod a+x /etc/periodic/15min/moodlecron
+COPY moodlecron /etc/periodic/15min/
+RUN chown apache:apache /etc/periodic/15min/moodlecron && chmod a+x /etc/periodic/15min/moodlecron
 
 CMD ["/opt/apache2/run.sh"]
 
