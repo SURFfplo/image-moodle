@@ -10,36 +10,25 @@ Run container
 $ docker run -p 80:80
              -v /var/moodledata:/var/moodledata
              -e "MOODLE_DB_TYPE=mysqli" \
-             -e "MOODLE_DB_HOST=db" \
+             -e "MOODLE_DB_HOST=moodledb" \
+             -e "MOODLE_DB_PORT=3306" \
              -e "MOODLE_DB_NAME=moodle" \
              -e "MOODLE_DB_USER=moodle" \
-             -e "MOODLE_DB_PASS=moodlepass" \
-             -e "MOODLE_URL=http://localhost" \
+             -e "MOODLE_DB_PASS=moodle" \
+             -e "MOODLE_URL=http://localhost:8080" \
              xflin/moodle
 ```
 
-As you see, some environment variables should be set. All of them must be
-non-empty, except `MOODLE_DB_PASS` — it may be empty, but must be set.
+Some environment variables can be skipped and will take default values.
+Two of them must be set: `MOODLE_URL` and `MOODLE_DB_HOST`;
+one should be set to a different value: `MOODLE_DB_PASS`.
 
 At this time MySQL database only supported.
 
-Deploy stack
+
 ---
-Instead of having a deal with database by your own, you could use stack provided.
-```
-$ MYSQL_ROOT_PASSWORD=root \
-  MYSQL_DATABASE=moodle \
-  MYSQL_USER=moodle \
-  MYSQL_PASSWORD=moodlepass \
-  MOODLE_URL=http://localhost \
-  docker stack deploy -c docker-compose.yml moodle
-```
+Forked from https://github.com/Zebradil/docker-moodle
 
-Notice, that there are another set of environment variables here.
-
-Forked from https://github.com/Zebradil/docker-moodle.git
-Inspired by bunch of [sergiogomez's docker-moodle forks](https://github.com/sergiogomez/docker-moodle).
-
-[coderunner]: http://coderunner.org.nz/
 [alpine]: https://alpinelinux.org/
 [moodle]: https://moodle.org/
+
