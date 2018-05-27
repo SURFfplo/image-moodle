@@ -23,7 +23,7 @@ Some environment variables can be skipped and will take default values.
 Two of them must be set: `MOODLE_URL` and `MOODLE_DB_HOST`;
 one should be set to a different value: `MOODLE_DB_PASS`.
 
-At this time MySQL database only supported.
+At this time only MySQL database is supported.
 
 
 ---

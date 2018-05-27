@@ -25,7 +25,7 @@ spec:
           value: http://localhost:8080
         - name: MOODLE_DB_HOST
           value: moodledb
-        image: moodle:3.5
+        image: xflin/moodle:3.5
         imagePullPolicy: IfNotPresent
         name: moodle
         ports:
