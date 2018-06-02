@@ -309,7 +309,7 @@ $CFG->admin = 'admin';
 //
 // Enable when using external SSL appliance for performance reasons.
 // Please note that site may be accessible via http: or https:, but not both!
-//      $CFG->sslproxy = true;
+$CFG->sslproxy = getenv('MOODLE_SSL_PROXY') ?: false;
 //
 // This setting will cause the userdate() function not to fix %d in
 // date strings, and just let them show with a zero prefix.

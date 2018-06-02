@@ -7,7 +7,7 @@ PHP7, and all php-extensions required by Moodle.
 Run container
 ---
 ```
-$ docker run -p 80:80
+$ docker run -d --name moodle -p 80:80
              -v /var/moodledata:/var/moodledata
              -e "MOODLE_DB_TYPE=mysqli" \
              -e "MOODLE_DB_HOST=moodledb" \
@@ -16,6 +16,7 @@ $ docker run -p 80:80
              -e "MOODLE_DB_USER=moodle" \
              -e "MOODLE_DB_PASS=moodle" \
              -e "MOODLE_URL=http://localhost:8080" \
+             -e "MOODLE_SSL_PROXY=false" \
              xflin/moodle
 ```
 
