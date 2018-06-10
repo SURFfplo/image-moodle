@@ -15,6 +15,7 @@ VOLUME ["/var/moodledata"]
 RUN apk update && apk add --no-cache \
   git \
   apache2 \
+  openssl \
   php7 \
   php7-apache2 \
   php7-iconv \
