@@ -39,13 +39,11 @@ RUN cd /tmp \
   && chown apache:apache -R /var/www/localhost/htdocs \
   && rm -f /var/www/localhost/cgi-bin/*
 
-#RUN cd /tmp \
-#  && git clone -b MOODLE_36_STABLE git://git.moodle.org/moodle.git --depth=1 \
-#  && rm -rf /var/www/localhost/htdocs \
-#  && mv /tmp/moodle /var/www/localhost/htdocs \
-#  && chown apache:apache -R /var/www/localhost/htdocs \
-#  && mkdir /run/apache2 \
-#  && rm -f /var/www/localhost/cgi-bin/*
+# also add saml module https://github.com/catalyst/moodle-auth_saml2
+RUN cd /tmp \
+  && git clone -b master https://github.com/catalyst/moodle-auth_saml2.git \
+  && mv /tmp/moodle-auth_saml2 /var/www/localhost/htdocs/auth/saml2 \
+  && chown apache:apache -R /var/www/localhost/htdocs/auth/saml2 
 
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
   && ln -sf /proc/self/fd/1 /var/log/apache2/error.log
